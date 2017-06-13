@@ -10,6 +10,10 @@
          body {
          background: url('img/grid-of-life.svg') center / cover;
          }
+	 main {
+	 margin: auto;
+	 max-width: 1400px;
+	 }
          .title-block {
          min-height: 580px;
          max-height: 580px;
@@ -68,6 +72,25 @@
          .invert--accent button { 
          color: white;
          }
+	.iframe--fintech {
+	  min-height: 850px;
+	  width: 100%
+          flex: 1;
+	}
+	.iframe--fintech-phone {
+	  left: 0;	
+	  min-height: 850px;
+	  min-width: 100%;
+	}
+	.iframe--bundleslang {
+	  width: 100%;
+	  height: 1400px;
+	  flex: 1;
+	}
+	.section--3-img {
+	   min-width: 50%;
+	   width:50%;	
+	}
       </style>
       <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
    </head>
@@ -109,32 +132,42 @@
                   </div>
                </div>
                <div class="mdl-grid services-block">
-                  <div class="mdl-cell mdl-cell--5-col">
+                  <div class="mdl-cell mdl-cell--12-col mdl-cell--5-col-desktop">
                      <h2>Node Tech Base is an open source template for rapid prototyping</h2>
                      <p>Simply fill out the json object with the page content, npm install, and your app is live in minutes. The open-source version comes with a built in NodeJS / Express API, an Angular Single Page Application, Firebase Authentication, is styled with Material Design. The application also runs Gulp in the background to remove unused CSS and minify / nano your JS.</p>
                      <p>Our internal version used in production comes with TLS support, garbage collection, and live-reload<button class="mdl-button mdl-js-button mdl-button--primary">Fork from Github <i class="material-icons">arrow_forward</i></button></p>
                   </div>
-                  <div class="mdl-cell mdl-cell--7-col">3</div>
-                  <div class="mdl-cell mdl-cell--5-col">
+                  <div class="mdl-cell mdl-cell--12-col mdl-cell--7-col-desktop mdl-cell--hide-phone">
+			<iframe class="iframe--fintech" src="//fintech.node.tech/" frameborder="0" scrolling="no"></iframe>
+			
+		  </div>
+                  <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--hide-desktop mdl-cell--hide-phone-tablet">
+			<iframe class="iframe--fintech-phone" src="//fintech.node.tech/" frameborder="0" scrolling="no"></iframe>
+			
+		  </div>
+                  <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone  invert--accent">
                      <h2>Bundleslang is an open source MySQL-ish querying syntax for mining the open web</h2>
                      <p>Funny Name, serious capabilities with out-of-the-box connections to social APIs, news feeds, and a built in crawler.<button class="mdl-button mdl-js-button" href="https://bundleslang.node.tech">Start Mining<i class="material-icons">play_circle_filled</i></button></p>
                   </div>
-                  <div class="mdl-cell mdl-cell--7-col invert--accent">
-                     <iframe src="138.68.16.22"></iframe>
+                  <div class="mdl-cell mdl-cell--9-col-desktop mdl-cell--8-col-tablet mdl-cell--hide-phone">
+                     <iframe class="iframe--bundleslang" src="//bundleslang.node.tech/" frameborder="0" scrolling="no" ></iframe>
                   </div>
-                  <div class="mdl-cell mdl-cell--7-col invert--accent">
+                  <div class="mdl-cell mdl-cell--7-col invert--accent mdl-cell--12-col-phone">
                      <h2>Bootstrap to AMP HTML Generator (alpha v0.1)</h2>
                      <p>Creating AMP HTML valid pages is a pain. This open-source renderer helps convert your existing bootstrap pages to AMP HTML. Simply copy your partials into the assets directory and run the application. It comes ready to host API endpoints as well.<button class="mdl-button mdl-js-button" href="https://github.com/ecommerce-technician/node-7.1-amp-generator">Clone from Github<i class="material-icons">play_circle_filled</i></button></p>
                   </div>
-                  <div class="mdl-cell mdl-cell--5-col">3</div>
-                  <div class="mdl-cell mdl-cell--4-col">3</div>
-                  <div class="mdl-cell mdl-cell--4-col">
-                     <h2>"Big Data" &amp; Visualization</h2>
-                     <p>Having problems turning your log files, customer data, or web-tracking data into actionable insights? We also do HDFS and NoSQL integrations with experience in Hadoop, HBASE, Cassandra, SOLR, Redis, AWS, GCloud, and more!</p>
-                     <p>After processing the data, we can also build cool visuals including d3 and charts.js<button class="mdl-button mdl-js-button">Download our One-Sheet PDF<i class="material-icons">file_download</i></button></p>
+                  <div class="mdl-cell mdl-cell--5-col mdl-cell--hide-phone">
+		        <img src="https://res.cloudinary.com/developfintech/image/upload/v1496829837/bootstrap.png" class="section--3-img"/><img src="https://res.cloudinary.com/developfintech/image/upload/v1496829875/nodetech/google-amp.png" class="section--3-img" />
                   </div>
-                  <div class="mdl-cell mdl-cell--4-col">
-                     <h2>Machine Learning (Natural Language, Classifiers, Subject Expert Fallbacks, Pre-Processing &amp; Enrichment)</h2>
+                  <div class="mdl-cell mdl-cell--4-col mdl-cell--hide-phone">
+		  </div>
+                  <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone">
+                     <h2>"Big Data" &amp; Visualization</h2>
+                     <p>Need to build a cool chart out of your existing CSV? Have a JSON endpoint you'd like to stream data from? Sick of using google analytics visualizations? We've got you covered with custom charts using D3s powerful built in digest cycle.</p>
+                     <p><button class="mdl-button mdl-js-button">Download our One-Sheet PDF<i class="material-icons">file_download</i></button></p>
+                  </div>
+                  <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone">
+                     <h2>Machine Learning, Enrichment, Search & More</h2>
                      <p>Need to build a chatbot to interact with your customers? Perhaps you want to understand your customers or get new ideas? Let's build some training models or enrich your data sets today!</p>
                      <p>We have experience with Watson, GCloud, Big Query, Elastic Search and more<button class="mdl-button mdl-js-button">Try our AI Newsreader<i class="material-icons">chrome_reader_mode </i></button></p>
                   </div>
@@ -151,5 +184,7 @@
             </footer>
          </main>
       </div>
+      <script async src="js/home.js"></script>
+
    </body>
 </html>
