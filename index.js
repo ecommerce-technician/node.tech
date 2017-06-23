@@ -1,9 +1,11 @@
+var compression = require('compression');
 var express = require('express');
 var https = require('https');
 var http = require('http');
 var app = express();
 
 app
+ .use(compression())
  .use(express.static('public'));
 
 http.createServer(app).listen(3000);
