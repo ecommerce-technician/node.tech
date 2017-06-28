@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ecommerce-technician/node.tech#readme",
   "dependencies": {
+    "compression": "^1.6.2",
     "express": "^4.15.3"
   }
 }
