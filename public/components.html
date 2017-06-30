@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+   <title>Node Tech</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.blue-red.min.css" integrity="sha256-KVaYSc7WnCfrxmFCaNwEUOgbNYExHhMEEGVXbvtkIlA=" crossorigin="anonymous" />
+   <style>
+      body {
+/*      background: url('img/grid-of-life.svg') center / cover;
+*/      }
+   .iframe--fintech {
+     width: 100%;
+     height: 100%;
+     flex: 1;
+   }
+   </style>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+      var config = {
+         apiKey: "AIzaSyCpKAT7pLNf5Jw6vjaPHAt9GpSLlM7pU2g",
+         authDomain: "nodetech-1a9c7.firebaseapp.com",
+         databaseURL: "https://nodetech-1a9c7.firebaseio.com",
+         projectId: "nodetech-1a9c7",
+         storageBucket: "nodetech-1a9c7.appspot.com",
+         messagingSenderId: "929781465111"
+      };
+      firebase.initializeApp(config);
+   </script>
+   <!-- Uses a header that scrolls with the text, rather than staying
+      locked at the top -->
+   <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--scroll">
+         <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Node.Tech ⚡ fast FinTech APIs &amp; more</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation -->
+            <nav class="mdl-navigation">
+               <a class="mdl-navigation__link" onclick="signOut();" id="login">Sign Out</a>
+               <div class="mdl-tooltip" for="login">
+                  Track the status of your app
+               </div>
+            </nav>
+         </div>
+      </header>
+      <div class="mdl-layout__drawer">
+         <span class="mdl-layout-title">Node.Tech ⚡ fast FinTech APIs &amp; more</span>
+         <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Finance &amp; APIs</a>
+            <a class="mdl-navigation__link" href="">Widgets</a>
+            <a class="mdl-navigation__link" onclick="signOut();">Sign Out</a>
+         </nav>
+      </div>
+      <main class="mdl-layout__content">
+         <div class="page-content">
+            <!-- Simple Textfield -->
+            <div class="mdl-grid">
+               <div class="mdl-cell mdl-cell--12-col">
+                  <h1>App Rough Draft</h1>
+                  <p>Start here: enter the bare minimum details to create your starter app template</p>
+               </div>
+               <div class="mdl-cell mdl-cell--3-col">
+                  <form action="#">
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="app--title" required onchange='updateInput("app--title", this.value, "text")'>
+                        <label class="mdl-textfield__label" for="app--title">App Title</label>
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="app--description" required onchange='updateInput("app--description", this.value, "text")'>
+                        <label class="mdl-textfield__label" for="app--description">App Description</label> 
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="schema--company"  required onchange='updateInput("schema--company", this.value, "text")'>
+                        <label class="mdl-textfield__label" for="schema--company">company name</label>
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <a class="mdl-button mdl-js-button mdl-button--primary" id="app--logo">
+                           <i class="material-icons">attach_file</i> upload logo
+                        </a>
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="schema--company-category" onchange='updateInput("schema--company-category", this.value, "text")'>
+                        <label class="mdl-textfield__label" for="schema--company-category">business category</label>
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="app--company-social-facebook">
+                        <label class="mdl-textfield__label" for="app--company-social-facebook">facebook</label>
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="app--company-social-twitter">
+                        <label class="mdl-textfield__label" for="app--company-social-twitter">twitter</label>
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="app--company-social-googlePlus">
+                        <label class="mdl-textfield__label" for="app--company-social-googlePlus">google+</label>
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="app--company-social-instagram">
+                        <label class="mdl-textfield__label" for="app--company-social-instagram">instagram</label>
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="app--company-social-linkedin">
+                        <label class="mdl-textfield__label" for="app--company-social-linkedin">linkedin</label>
+                     </div>
+                     <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="app--company-social-instagram">
+                        <label class="mdl-textfield__label" for="app--company-social-instagram">instagram</label>
+                     </div>
+                     <div>
+                        <a class="mdl-button mdl-js-button mdl-button--primary mdl-button--raised mdl-js-ripple-effect">
+                            Next <i class="material-icons"> keyboard_arrow_right</i>
+                        </a>                     
+                     </div>
+                  </form>
+               </div>
+               <div class="mdl-cell mdl-cell--9-col">
+                  <div class="phone-preview">
+                     <div class="marvel-device iphone6 silver">
+                        <div class="top-bar"></div>
+                        <div class="sleep"></div>
+                        <div class="volume"></div>
+                        <div class="camera"></div>
+                        <div class="sensor"></div>
+                        <div class="speaker"></div>
+                        <div class="screen" style="background-color: white;">
+                           <div class="mdl-layout mdl-js-layout">
+                              <header class="mdl-layout__header mdl-layout__header--scroll">
+                                 <div class="mdl-layout__header-row">
+                                    <!-- Title -->
+                                    <span class="mdl-layout-title app--title">
+                                    </span>
+                                    <!-- Add spacer, to align navigation to the right -->
+                                    <div class="mdl-layout-spacer"></div>
+                                    <!-- Navigation -->
+                                    <nav class="mdl-navigation">
+                                       <a class="mdl-navigation__link" href="" id="login">Sign In</a>
+                                       <div class="mdl-tooltip" for="login">
+                                          Track the status of your app
+                                       </div>
+                                    </nav>
+                                 </div>
+                              </header>
+                              <div class="mdl-layout__drawer"></div>
+                              <img class="app--logo" src="">
+                              <p style="color:black;" class="app--description"></p>
+                              <span style="color:black;" class="schema--company"></span>
+                              <br>
+                           <em style="color:black;" class="schema--company-category"></em>
+                           </div>
+                        </div>
+                        <div class="home"></div>
+                        <div class="bottom-bar"></div>
+                        </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+               <div class="mdl-logo">&copy; 2017 Node.Tech</div>
+               <ul class="mdl-mini-footer__link-list">
+                  <li><a href="#">Help</a></li>
+                  <li><a href="#">Privacy &amp; Terms</a></li>
+               </ul>
+            </div>
+         </footer>
+      </main>
+   </div>
+   <dialog class="mdl-dialog">
+    <h4 class="mdl-dialog__title">Oops! You need to be logged in to do that!</h4>
+    <div class="mdl-dialog__content">
+      <p>
+        Please login, or create an account to begin the process of creating your app
+      </p>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="button" class="mdl-button close">Thanks!</button>
+    </div>
+  </dialog>
+   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons" lazyload>
+   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" lazyload>
+   <script async src="js/components.js"></script>
+   <script async src="//widget.cloudinary.com/global/all.js" type="text/javascript">  
+</script>
+   <link rel="stylesheet" href="css/devices.min.css" type="text/css">
+</html>
